@@ -7,6 +7,30 @@
     <title>Your Website Title</title>
     <link rel="stylesheet" href="styles.css">
     <!-- Add any additional meta tags, links, or stylesheets here -->
+    <style>
+        body {
+            margin: 0 auto; /* Center the website on the screen */
+            max-width: 500px; /* Set a maximum width if desired */
+        }
+
+        /* Add additional styles for your slideshow if needed */
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        
+    </style>
 </head>
 
 <body>
@@ -23,8 +47,19 @@
         </section>
 
         <section>
-            <h2>Section 2</h2>
-            <p>This is the content of Section 2.</p>
+            <h2>Section 2 - Image Slideshow</h2>
+            <div class="slideshow-container">
+                <div class="mySlides">
+                    <img src="image1.jpg" alt="Image 1">
+                </div>
+                <div class="mySlides">
+                    <img src="image2.jpg" alt="Image 2">
+                </div>
+                <div class="mySlides">
+                    <img src="image3.jpg" alt="Image 3">
+                </div>
+                <!-- Add more slides as needed -->
+            </div>
             <!-- Add more content as needed -->
         </section>
 
@@ -38,6 +73,25 @@
 
     <!-- Add any scripts or additional content before closing body tag -->
     <script src="script.js"></script>
+    <script>
+        // Add JavaScript for the slideshow
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 2000); // Change slide every 2 seconds (adjust as needed)
+        }
+    </script>
 </body>
 
 </html>
