@@ -1,0 +1,127 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nurbli</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add any additional meta tags, links, or stylesheets here -->
+    <style>
+        body {
+            margin: 0 auto;
+            max-width: 1000px;
+            /*overflow: hidden; /* Hide horizontal scrollbar */
+            position: relative;
+        }
+
+        header {
+            position: relative;
+            padding: 10px;
+            background-color: #f2f2f2; /* Background color for the header */
+        }
+
+        h1 {
+            margin: 0;
+            padding-left: 50px; /* Add padding to create space for the home button */
+        }
+
+        .home-button {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        /* Add additional styles for your slideshow if needed */
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+            overflow-x: hidden; /* Hide horizontal scrollbar and limit view */
+            white-space: nowrap; /* Prevent line breaks */
+            scroll-behavior: smooth; /* Smooth scrolling */
+        }
+
+        .mySlides {
+            display: inline-block;
+            white-space: normal; /* Allow line breaks inside slides */
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block; /* Remove extra space under the image */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Nurbli</h1>
+        <div class="home-button" onclick="goHome()">🏠</div>
+        <!-- Add navigation or any other header content here -->
+    </header>
+
+    <main>
+        <section>
+            <h2>Section 1</h2>
+            <p>This is the content of Section 1.</p>
+            <!-- Add more content as needed -->
+        </section>
+
+        <section>
+            <h2>Section 2 - Image Slideshow</h2>
+            <div class="slideshow-container">
+                <div class="mySlides">
+                    <img src="image1.jpg" alt="Image 1">
+                </div>
+                <div class="mySlides">
+                    <img src="image2.jpg" alt="Image 2">
+                </div>
+                <div class="mySlides">
+                    <img src="image3.jpg" alt="Image 3">
+                </div>
+                <div class="mySlides">
+                    <img src="image4.jpg" alt="Image 4">
+                </div>
+                <!-- Add more slides as needed -->
+            </div>
+            <!-- Add more content as needed -->
+        </section>
+
+        <!-- Add more sections as needed -->
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Website Name. All rights reserved.</p>
+        <!-- Add any additional footer content or links here -->
+    </footer>
+
+    <!-- Add any scripts or additional content before closing body tag -->
+    <script src="script.js"></script>
+    <script>
+        // JavaScript for the automatic horizontal scrolling
+        let scrollContainer = document.querySelector('.slideshow-container');
+
+        function scrollImages() {
+            if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
+                scrollContainer.scrollLeft = 0;
+            } else {
+                scrollContainer.scrollLeft += 1;
+            }
+        }
+
+        function goHome() {
+            // Define the URL for your home page and navigate to it
+            window.location.href = "home.html"; // Replace with your home page URL
+        }
+
+        setInterval(scrollImages, 5); // Adjust the interval for very fast scrolling
+    </script>
+</body>
+
+</html>
