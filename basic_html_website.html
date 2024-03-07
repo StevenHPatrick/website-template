@@ -9,8 +9,9 @@
     <!-- Add any additional meta tags, links, or stylesheets here -->
     <style>
         body {
-            margin: 0 auto; /* Center the website on the screen */
-            max-width: 500px; /* Set a maximum width if desired */
+            margin: auto;
+            /*max-width: 500px;
+            overflow: hidden; /* Hide horizontal scrollbar */
         }
 
         /* Add additional styles for your slideshow if needed */
@@ -18,18 +19,21 @@
             max-width: 1000px;
             position: relative;
             margin: auto;
+            overflow-x: hidden; /* Hide horizontal scrollbar and limit view */
+            white-space: nowrap; /* Prevent line breaks */
+            scroll-behavior: smooth; /* Smooth scrolling */
         }
 
         .mySlides {
-            display: none;
+            display: inline-block;
+            white-space: normal; /* Allow line breaks inside slides */
         }
 
         img {
             width: 100%;
             height: auto;
+            display: block; /* Remove extra space under the image */
         }
-
-        
     </style>
 </head>
 
@@ -58,6 +62,9 @@
                 <div class="mySlides">
                     <img src="image3.jpg" alt="Image 3">
                 </div>
+                <div class="mySlides">
+                    <img src="image4.jpg" alt="Image 4">
+                </div>
                 <!-- Add more slides as needed -->
             </div>
             <!-- Add more content as needed -->
@@ -74,23 +81,18 @@
     <!-- Add any scripts or additional content before closing body tag -->
     <script src="script.js"></script>
     <script>
-        // Add JavaScript for the slideshow
-        let slideIndex = 0;
-        showSlides();
+        // JavaScript for the automatic horizontal scrolling
+        let scrollContainer = document.querySelector('.slideshow-container');
 
-        function showSlides() {
-            let i;
-            let slides = document.getElementsByClassName("mySlides");
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
+        function scrollImages() {
+            if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
+                scrollContainer.scrollLeft = 0;
+            } else {
+                scrollContainer.scrollLeft += 1;
             }
-            slideIndex++;
-            if (slideIndex > slides.length) {
-                slideIndex = 1;
-            }
-            slides[slideIndex - 1].style.display = "block";
-            setTimeout(showSlides, 2000); // Change slide every 2 seconds (adjust as needed)
         }
+
+        setInterval(scrollImages, 10); // Adjust the interval for smoother or faster scrolling
     </script>
 </body>
 
