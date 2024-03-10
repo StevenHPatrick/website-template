@@ -1,4 +1,5 @@
-
+<!-- https://www.w3schools.com/html/html_responsive.asp -->
+<!-- https://www.w3schools.com/howto/howto_website.asp -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,22 +11,28 @@
     <link rel="stylesheet" href="styles.css">
     <!-- Add any additional meta tags, links, or stylesheets here -->
     <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background-color: white;
+        }
         body {
-            margin: 0 auto;
-            max-width: 1000px;
-            /*overflow: hidden; /* Hide horizontal scrollbar */
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: white;
         }
 
-        header {
+        header, main, footer {
+            width: 100%;
             position: relative;
             padding: 10px;
-            background-color: #f2f2f2; /* Background color for the header */
         }
 
         h1 {
             margin: 0;
-            padding-left: 50px; /* Add padding to create space for the home button */
+            padding-left: 50px;
         }
 
         .home-button {
@@ -36,61 +43,176 @@
             cursor: pointer;
         }
 
-        /* Add additional styles for your slideshow if needed */
         .slideshow-container {
-            max-width: 1000px;
+            width: 100%;
             position: relative;
             margin: auto;
-            overflow-x: hidden; /* Hide horizontal scrollbar and limit view */
-            white-space: nowrap; /* Prevent line breaks */
-            scroll-behavior: smooth; /* Smooth scrolling */
+            overflow: hidden;
+            overflow-x: hidden;
+            white-space: nowrap;
+            scroll-behavior: smooth;
+        }
+
+        .mySlides img {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+        }
+
+        .slideshow-container .prev,
+        .slideshow-container .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            background-color: #ffffff;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            color: #333;
+            font-size: 24px;
+            border-radius: 50%;
+        }
+
+        .slideshow-container .prev {
+            left: 0;
+        }
+
+        .slideshow-container .next {
+            right: 0;
+        }
+
+        .content-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .mySlides {
-            display: inline-block;
-            white-space: normal; /* Allow line breaks inside slides */
+            display: none;
+        }
+
+        .mySlides:first-child {
+            display: block;
         }
 
         img {
             width: 100%;
             height: auto;
-            display: block; /* Remove extra space under the image */
+            display: block;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 300px;
+            height: 240px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 40px auto 20px;
+            background: #FFFFFF;
+            clip-path: polygon(0 10%, 100% 10%, 100% 90%, 0 90%);
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .company-logo {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+
+        .company-name, .company-statement {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
+
+        .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: blue;
+        }
+
+        .company-name {
+            position: absolute;
+            top: calc(50% - 100px);
+            left: 50%;
+            transform: translate(-50%, -100%);
+            font-size: 1.5em;
+            white-space: nowrap;
+            z-index: 2;
+        }
+
+        .company-statement {
+            position: absolute;
+            bottom: calc(50% - 100px);
+            left: 50%;
+            transform: translate(-50%, 100%);
+            font-size: 1em;
+            white-space: nowrap;
+            z-index: 2;
+        }
+
+        .apps-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .apps-button:hover {
+            background-color: #e0e0e0;
         }
     </style>
 </head>
 
 <body>
     <header>
-        <h1>Nurbli</h1>
-        <div class="home-button" onclick="goHome()">🏠</div>
-        <!-- Add navigation or any other header content here -->
+        <h1 class="company-name">Nurbli</h1>
+        <button class="apps-button" onclick="openAppsMenu()">☰</button>
+        <div class="logo-container">
+            <img src="Logo1.png" alt="Nurbli Logo" class="company-logo">
+        </div>
+        <p class="company-statement">Working alongside students, we aim to help the community.</p>
     </header>
 
     <main>
-        <section>
-            <h2>Section 1</h2>
-            <p>This is the content of Section 1.</p>
-            <!-- Add more content as needed -->
-        </section>
 
         <section>
-            <h2>Section 2 - Image Slideshow</h2>
             <div class="slideshow-container">
+                <button class="prev" onclick="plusSlides(-1)">❮</button>
+                
+                <!-- Slides -->
                 <div class="mySlides">
-                    <img src="image1.jpg" alt="Image 1">
+                    <img src="Slideshow_Placeholder1.png" alt="Image 1">
                 </div>
                 <div class="mySlides">
-                    <img src="image2.jpg" alt="Image 2">
+                    <img src="Slideshow_Placeholder2.png" alt="Image 2">
                 </div>
                 <div class="mySlides">
-                    <img src="image3.jpg" alt="Image 3">
+                    <img src="Slideshow_Placeholder3.png" alt="Image 3">
                 </div>
                 <div class="mySlides">
-                    <img src="image4.jpg" alt="Image 4">
+                    <img src="Slideshow_Placeholder4.png" alt="Image 4">
                 </div>
-                <!-- Add more slides as needed -->
+                <div class="mySlides">
+                    <img src="Slideshow_Placeholder5.png" alt="Image 5">
+                </div>
+        
+                <button class="next" onclick="plusSlides(1)">❯</button>
             </div>
-            <!-- Add more content as needed -->
         </section>
 
         <!-- Add more sections as needed -->
@@ -104,23 +226,33 @@
     <!-- Add any scripts or additional content before closing body tag -->
     <script src="script.js"></script>
     <script>
-        // JavaScript for the automatic horizontal scrolling
-        let scrollContainer = document.querySelector('.slideshow-container');
+        let currentSlideIndex = 0;
+        const slides = document.getElementsByClassName('mySlides');
+        const totalSlides = slides.length;
 
-        function scrollImages() {
-            if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
-                scrollContainer.scrollLeft = 0;
-            } else {
-                scrollContainer.scrollLeft += 1;
+        function showSlides(n) {
+            if (n >= totalSlides) { n = 0; }
+            if (n < 0) { n = totalSlides - 1; }
+            for (let i = 0; i < totalSlides; i++) {
+                slides[i].style.display = "none";  
             }
+            slides[n].style.display = "block";  
+            currentSlideIndex = n;
         }
+
+        function plusSlides(n) {
+            showSlides(currentSlideIndex += n);
+        }
+
+        showSlides(currentSlideIndex);
 
         function goHome() {
-            // Define the URL for your home page and navigate to it
-            window.location.href = "home.html"; // Replace with your home page URL
+            window.location.href = "home.html"; // Navigate to home page
         }
 
-        setInterval(scrollImages, 5); // Adjust the interval for very fast scrolling
+        function openAppsMenu() {
+            alert("Open apps menu here.");
+        }
     </script>
 </body>
 
