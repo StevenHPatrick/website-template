@@ -11,16 +11,19 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            width: 100%;
-            background-color: white;
+            max-width: 100%;
+            overflow-x: hidden;
         }
 
         body {
-            display: flex;
-            flex-direction: column;
+            border: 8px solid #f804f8;
+            box-sizing: border-box;
+        }
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
         }
 
         header, main, footer {
@@ -36,7 +39,7 @@
             height: 50px;
         }
 
-        .top-nav {
+        .top-web {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -96,14 +99,18 @@
         }
 
         .mySlides {
-            height: calc(100vh - 70px - 50px);
-            scroll-snap-align: start;
+            /* height: calc(100vh - 70px - 50px);
+            scroll-snap-align: start; */
             /* display: block; */
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         .mySlides img {
             width: 100%;
-            height: auto;
+            /* height: auto; */
+            overflow: hidden;
         }
 
         footer {
@@ -113,12 +120,147 @@
             width: 100%;
             z-index: 10;
         }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
+        .overlay {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: rgb(0,0,0, 0.9);
+            overflow-x: hidden;
+            transition: 0.5s;
+        }
+
+        .overlay-content {
+            position: relative;
+            top: 25%;
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .overlay a {
+            padding: 8px;
+            text-decoration: none;
+            font-size: 36px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .overlay a:hover, .overlay a:focus {
+            color: #f1f1f1;
+        }
+
+        .closebutton {
+            position: absolute;
+            top: 20px;
+            right: 45px;
+            font-size: 60px;
+            color: #818181;
+            cursor: pointer;
+        }
+        .our-vision {
+            background-color: #f9f9f9;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .our-vision .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .our-vision h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .our-vision p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .learn-more-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .learn-more-button:hover {
+            background-color: #45a049;
+        }
+
+        .subscribe {
+            background-color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .subscribe .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .subscribe h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .subscribe p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .subscribe-form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .subscribe-form input[type="email"],
+        .subscribe-form input[type="text"] {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        .subscribe-form button {
+            padding: 10px 20px;
+            background-color: #000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .subscribe-form button:hover {
+            background-color: #333;
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <div class="top-nav">
+        <div class="top-web">
             <div class="logo-container">
                 <img src="Logo1.png" alt="Nurbli Logo" class="company-logo">
             </div>
@@ -128,6 +270,15 @@
             <div class="right-buttons">
                 <button class="subscribe-button">Subscribe</button>
                 <button class="menu-button" onclick="openAppsMenu()">☰</button>
+            </div>
+        </div>
+        <div id="appsMenu" class="overlay">
+            <a href="javascript:void(0)" class="closebutton" onclick="closeAppsMenu()">&times;</a>
+            <div class="overlay-content">
+                <a href="#">App 1</a>
+                <a href="#">App 2</a>
+                <a href="#">App 3</a>
+                <!-- We can add further apps if we need to -->
             </div>
         </div>
     </header>
@@ -153,6 +304,24 @@
                 </div>
             </div>
         </section>
+        <section class="our-vision">
+            <div class="content-container">
+                <h2>OUR VISION</h2>
+                <p>"Working with students, we aim to help the community."</p>
+                <a href="#" class="learn-more-button">Learn more about Nurbli</a>
+            </div>
+        </section>
+        <section class="subscribe">
+            <div class="content-container">
+                <h2>SUBSCRIBE</h2>
+                <p>Keep up with us</p>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="text" placeholder="Name" required>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </section>
 
     </main>
 
@@ -167,7 +336,11 @@
         }
     
         function openAppsMenu() {
-            alert("Open apps menu here.");
+            document.getElementById("appsMenu").style.width = "100%";
+        }
+
+        function closeAppsMenu() {
+            document.getElementById("appsMenu").style.width = "0%";
         }
     </script>    
 </body>
