@@ -256,19 +256,10 @@
             background-color: #333;
         }
 
-        .titleFont {
-            font-family: 'Clab', serif;
-        }
+      
 
         
-        @font-face{
-            font-family: sansation;
-            src: url('sansation_light.woff');
-        }
-
-        body {
-            font-family: sansation;
-        }
+       
     </style>
 </head>
 
@@ -279,10 +270,12 @@
                 <img src="Logo1.png" alt="Nurbli Logo" class="company-logo">
             </div>
             <nav class="company-nav">
-                <a href="home.html" class="titleFont">Nurbli</a>
+                <a href="home.html" >Nurbli</a>
             </nav>
             <div class="right-buttons">
-                <button class="subscribe-button">Subscribe</button>
+                <a href="#bottom">
+                    <button class="subscribe-button" >Subscribe</button>
+                </a>
                 <button class="menu-button" onclick="openAppsMenu()">☰</button>
             </div>
         </div>
@@ -326,6 +319,7 @@
             </div>
         </section>
         <section class="subscribe">
+            <a id = "bottom"></a>
             <div class="content-container">
                 <h2>SUBSCRIBE</h2>
                 <p>Keep up with us</p>
