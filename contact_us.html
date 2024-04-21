@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nurbli</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            border: 8px solid #ffffff;
+            box-sizing: border-box;
+        }
+
+        body {     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        header, main, footer {
+            width: 100%;
+            padding: 10px;
+        }
+
+        header {
+            height: 70px;
+        }
+
+        footer {
+            height: 50px;
+        }
+
+        .top-web {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 10px 20px;
+        }
+
+        .logo-container {
+            flex: 1;
+        }
+
+        .company-logo {
+            height: 50px;
+            cursor: pointer;
+        }
+
+        .company-nav {
+            flex: 2;
+            text-align: center;
+        }
+
+        .company-nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .right-buttons {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .subscribe-button,
+        .menu-button {
+            margin-left: 10px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #f0f0f0;
+            color: #333;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .subscribe-button:hover,
+        .menu-button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .slideshow-container {
+            height: calc(100vh - 70px - 50px);
+            overflow-y: auto;
+            scroll-snap-type: y proximity;
+            /* padding-bottom: 50px; */
+        }
+
+        .mySlides {
+            /* height: calc(100vh - 70px - 50px);
+            scroll-snap-align: start; */
+            /* display: block; */
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .mySlides img {
+            width: 100%;
+            /* height: auto; */
+            overflow: hidden;
+        }
+
+        footer {
+            /* height: 50px; */
+            position: relative;
+            /* bottom: 0; */
+            width: 100%;
+            z-index: 10;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
+        .overlay {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: rgb(0,0,0, 0.9);
+            overflow-x: hidden;
+            transition: 0.5s;
+        }
+
+        .overlay-content {
+            position: relative;
+            top: 25%;
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .overlay a {
+            padding: 8px;
+            text-decoration: none;
+            font-size: 36px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .overlay a:hover, .overlay a:focus {
+            color: #f1f1f1;
+        }
+
+        .closebutton {
+            position: absolute;
+            top: 20px;
+            right: 45px;
+            font-size: 60px;
+            color: #818181;
+            cursor: pointer;
+        }
+        .our-vision {
+            background-color: #f9f9f9;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .our-vision .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .our-vision h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .our-vision p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .learn-more-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .learn-more-button:hover {
+            background-color: #45a049;
+        }
+
+        .subscribe {
+            background-color: #d3d3d3;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .subscribe .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .subscribe h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .subscribe p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Contact form styles */
+        .contact-form {
+            padding: 40px 0;
+            margin: 0 10px;
+        }
+        
+        .form-container {
+            max-width: 40%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-container label {
+            display:block;
+            font-weight: bold;
+        }
+        .form-container input, textarea{
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            resize: vertical;
+        }
+        .submit-button {
+            padding: 10px 20px;
+            background-color: #0dac30;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        
+        /* Contact info styles */
+        .contact-info {
+            text-align: center;
+            padding: 50px 0;
+            background-color: #f7f7f7;
+        }
+        
+        .contact-info h2 {
+            margin-bottom: 20px;
+        } 
+      
+
+        
+       
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="top-web">
+            <div class="logo-container">
+                <img src="Logo1.png" alt="Nurbli Logo" class="company-logo">
+            </div>
+            <nav class="company-nav">
+                <a href="home.html" >Nurbli</a>
+            </nav>
+            <div class="right-buttons">
+                <a href="home.html#bottom">
+                    <button class="subscribe-button" >Subscribe</button>
+                </a>
+                <button class="menu-button" onclick="openAppsMenu()">☰</button>
+            </div>
+        </div>
+        <div id="appsMenu" class="overlay">
+            <a href="javascript:void(0)" class="closebutton" onclick="closeAppsMenu()">&times;</a>
+            <div class="overlay-content">
+                <!--<a href="https://www.promise-prayer.com/">Promise Prayer</a>-->
+                <a href="home.html">Home Page</a>
+                <a href="about.html">About Us</a>
+                <a href="#">App 3</a>
+                <!-- We can add further apps if we need to -->
+            </div>
+        </div>
+    </header>
+    <main>
+         <!-- Contact form -->
+        <section class="contact-form">
+            <div class="form-container">
+                <h2>Your Details</h2>
+                <form action="" method="">
+    
+                    <label for="name">Name: </label>
+                    <input type="text" id="name" name="name" required>
+    
+                    <label for="email">Email: </label>
+                    <input type="email" id="email" name="email" required>
+    
+                    <label for="phone">Phone: </label>
+                    <input type="tel" id="phone" name="phone">
+    
+                    <label for="message">Message: </label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+    
+                    <button type="submit" class="submit-button">Submit</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Your Website Name. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function goHome() {
+            window.location.href = "home.html";
+        }
+    
+        function openAppsMenu() {
+            document.getElementById("appsMenu").style.width = "100%";
+        }
+
+        function closeAppsMenu() {
+            document.getElementById("appsMenu").style.width = "0%";
+        }
+    </script>    
+</body>
+
+</html>
