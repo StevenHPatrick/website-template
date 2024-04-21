@@ -9,269 +9,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nurbli</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        html, body {
-            max-width: 100%;
-            overflow-x: hidden;
-        }
-
-        body {
-            border: 8px solid #ffffff;
-            box-sizing: border-box;
-        }
-
-        body {     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
-
-        * {
-            box-sizing: border-box;
-            padding: 0;
-            margin: 0;
-        }
-
-        header, main, footer {
-            width: 100%;
-            padding: 10px;
-        }
-
-        header {
-            height: 70px;
-        }
-
-        footer {
-            height: 50px;
-        }
-
-        .top-web {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #ffffff;
-            padding: 10px 20px;
-        }
-
-        .logo-container {
-            flex: 1;
-        }
-
-        .company-logo {
-            height: 50px;
-            cursor: pointer;
-        }
-
-        .company-nav {
-            flex: 2;
-            text-align: center;
-        }
-
-        .company-nav a {
-            text-decoration: none;
-            color: #333;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .right-buttons {
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .subscribe-button,
-        .menu-button {
-            margin-left: 10px;
-            padding: 10px 20px;
-            border: none;
-            background-color: #f0f0f0;
-            color: #333;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .subscribe-button:hover,
-        .menu-button:hover {
-            background-color: #e0e0e0;
-        }
-
-        .slideshow-container {
-            height: calc(100vh - 70px - 50px);
-            overflow-y: auto;
-            scroll-snap-type: y proximity;
-            /* padding-bottom: 50px; */
-        }
-
-        .mySlides {
-            /* height: calc(100vh - 70px - 50px);
-            scroll-snap-align: start; */
-            /* display: block; */
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .mySlides img {
-            width: 100%;
-            /* height: auto; */
-            overflow: hidden;
-        }
-
-        footer {
-            /* height: 50px; */
-            position: relative;
-            /* bottom: 0; */
-            width: 100%;
-            z-index: 10;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 10px;
-        }
-
-        .overlay {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: rgb(0,0,0, 0.9);
-            overflow-x: hidden;
-            transition: 0.5s;
-        }
-
-        .overlay-content {
-            position: relative;
-            top: 25%;
-            width: 100%;
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .overlay a {
-            padding: 8px;
-            text-decoration: none;
-            font-size: 36px;
-            color: #818181;
-            display: block;
-            transition: 0.3s;
-        }
-
-        .overlay a:hover, .overlay a:focus {
-            color: #f1f1f1;
-        }
-
-        .closebutton {
-            position: absolute;
-            top: 20px;
-            right: 45px;
-            font-size: 60px;
-            color: #818181;
-            cursor: pointer;
-        }
-        .our-vision {
-            background-color: #f9f9f9;
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        .our-vision .content-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .our-vision h2 {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .our-vision p {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        .learn-more-button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-
-        .learn-more-button:hover {
-            background-color: #45a049;
-        }
-
-        .subscribe {
-            background-color: #d3d3d3;
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        .subscribe .content-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .subscribe h2 {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .subscribe p {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        .subscribe-form {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .subscribe-form input[type="email"],
-        .subscribe-form input[type="text"] {
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            margin-right: 10px;
-        }
-
-        .subscribe-form button {
-            padding: 10px 20px;
-            background-color: #0dac30;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .subscribe-form button:hover {
-            background-color: #0dac30;
-        }
-       
-    </style>
 </head>
 
 <body>
     <header>
         <div class="top-web">
             <div class="logo-container">
-                <img src="Logo1.png" alt="Nurbli Logo" class="company-logo">
+                <a href="home.html">
+                    <img src="Logo1.png" alt="Nurbli Logo" class="company-logo">
+                </a>
             </div>
             <nav class="company-nav">
                 <a href="home.html" >Nurbli</a>
             </nav>
             <div class="right-buttons">
-                <a href="#bottom">
+                <a href="home.html#bottom">
                     <button class="subscribe-button" >Subscribe</button>
                 </a>
                 <button class="menu-button" onclick="openAppsMenu()">☰</button>
@@ -283,7 +35,7 @@
                 <!--<a href="https://www.promise-prayer.com/">Promise Prayer</a>-->
                 <a href="about.html">About Us</a>
                 <a href="contact_us.html">Contact Us</a>
-                <a href="#">App 3</a>
+                <a href="app.html">Apps</a>
                 <!-- We can add further apps if we need to -->
             </div>
         </div>
@@ -333,7 +85,9 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Your Website Name. All rights reserved.</p>
+        <section class="footer">
+            <p>&copy; 2024 Your Website Name. All rights reserved.</p>
+        </section>
     </footer>
 
     <script src="script.js"></script>
