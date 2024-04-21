@@ -1,6 +1,3 @@
-<!-- https://www.w3schools.com/html/html_responsive.asp -->
-<!-- https://www.w3schools.com/howto/howto_website.asp -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nurbli</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
+    <!--<style>
         html, body {
             max-width: 100%;
             overflow-x: hidden;
@@ -257,79 +254,74 @@
         .subscribe-form button:hover {
             background-color: #0dac30;
         }
-       
-    </style>
+    </style>-->
 </head>
 
-<body>
-    <header>
-        <div class="top-web">
-            <div class="logo-container">
+<header>
+    <div class="top-web">
+        <div class="logo-container">
+            <a href="home.html">
                 <img src="Logo1.png" alt="Nurbli Logo" class="company-logo">
-            </div>
-            <nav class="company-nav">
-                <a href="home.html" >Nurbli</a>
-            </nav>
-            <div class="right-buttons">
-                <a href="#bottom">
-                    <button class="subscribe-button" >Subscribe</button>
-                </a>
-                <button class="menu-button" onclick="openAppsMenu()">☰</button>
-            </div>
+            </a>
         </div>
+        <nav class="company-nav">
+            <a href="home.html" >Nurbli</a>
+        </nav>
+        <div class="right-buttons">
+            <a href="home.html#bottom">
+                <button class="subscribe-button" >Subscribe</button>
+            </a>
+            <button class="menu-button" onclick="openAppsMenu()">☰</button>
+        </div>
+    </div>
         <div id="appsMenu" class="overlay">
             <a href="javascript:void(0)" class="closebutton" onclick="closeAppsMenu()">&times;</a>
             <div class="overlay-content">
                 <!--<a href="https://www.promise-prayer.com/">Promise Prayer</a>-->
+                <a href="home.html">Home Page</a>
                 <a href="about.html">About Us</a>
                 <a href="contact_us.html">Contact Us</a>
-                <a href="#">App 3</a>
                 <!-- We can add further apps if we need to -->
             </div>
         </div>
     </header>
 
     <main>
-
-        <section>
-            <div class="slideshow-container" id="slideshow">
-                <div class="mySlides">
-                    <img src="Slideshow_Placeholder1.png" alt="Image 1">
-                </div>
-                <div class="mySlides">
-                    <img src="Slideshow_Placeholder2.png" alt="Image 2">
-                </div>
-                <div class="mySlides">
-                    <img src="Slideshow_Placeholder3.png" alt="Image 3">
-                </div>
-                <div class="mySlides">
-                    <img src="Slideshow_Placeholder4.png" alt="Image 4">
-                </div>
-                <div class="mySlides">
-                    <img src="Slideshow_Placeholder5.png" alt="Image 5">
-                </div>
-            </div>
-        </section>
-        <section class="our-vision">
-            <div class="content-container">
-                <h2>OUR VISION</h2>
-                <p>"Working with students, we aim to help the community."</p>
-                <a href="about.html" class="learn-more-button">Learn more about Nurbli</a>
-            </div>
-        </section>
-        <section class="subscribe">
-            <a id = "bottom"></a>
-            <div class="content-container">
-                <h2>SUBSCRIBE</h2>
-                <p>Keep up with us</p>
-                <form class="subscribe-form">
-                    <input type="email" placeholder="Email Address" required>
-                    <input type="text" placeholder="Name" required>
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
-        </section>
-
+        <section class="tiles-container"> 
+            
+            <div class="tile"> 
+                <a href="https://www.promise-prayer.com/" class="tile-link">
+                    <h2>Promise Prayer</h2> 
+                    <p> 
+                        Create and save prayers written by yourself
+                        or with some help of an AI, Promise Prayer is
+                        here to help
+                    </p> 
+                </a>
+            </div> 
+            
+    
+            <div class="tile"> 
+                <h2>Place Holder</h2> 
+                <p> 
+                    This could be text or a picture.
+                </p> 
+            </div> 
+    
+            <div class="tile"> 
+                <h2>Another Place Holder</h2> 
+                <p> 
+                    This was a fun project
+                </p> 
+            </div> 
+    
+            <div class="tile"> 
+                <h2>I love place holders</h2> 
+                <p> 
+                    Going a bit mad
+                </p> 
+            </div> 
+        </section> 
     </main>
 
     <footer>
