@@ -270,7 +270,22 @@
                 <a href="home.html">Nurbli</a>
             </nav>
             <div class="right-buttons">
-                
+                <div class="right-buttons">
+                    <a href="home.html#bottom">
+                        <button class="subscribe-button" >Subscribe</button>
+                    </a>
+                    <button class="menu-button" onclick="openAppsMenu()">☰</button>
+                </div>
+            </div>
+            <div id="appsMenu" class="overlay">
+                <a href="javascript:void(0)" class="closebutton" onclick="closeAppsMenu()">&times;</a>
+                <div class="overlay-content">
+                    <!--<a href="https://www.promise-prayer.com/">Promise Prayer</a>-->
+                    <a href="home.html">Home Page</a>
+                    <a href="contact_us.html">Contact Us</a>
+                    <a href="#">App 3</a>
+                    <!-- We can add further apps if we need to -->
+                </div>
             </div>
         </div>
         
@@ -288,7 +303,20 @@
         <p>&copy; 2024 Your Website Name. All rights reserved.</p>
     </footer>
 
-       
+    <script src="script.js"></script>
+    <script>
+        function goHome() {
+            window.location.href = "home.html";
+        }
+    
+        function openAppsMenu() {
+            document.getElementById("appsMenu").style.width = "100%";
+        }
+
+        function closeAppsMenu() {
+            document.getElementById("appsMenu").style.width = "0%";
+        }
+    </script>  
 </body>
 
 </html>
